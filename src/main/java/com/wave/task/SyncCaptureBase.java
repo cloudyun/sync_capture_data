@@ -399,8 +399,8 @@ public class SyncCaptureBase {
 			String DELTIME = Util.getDate(0).replaceAll("-", "");
 			String backup = "select * into " + table + "_" + ENDTIME + "_" + DELTIME + " from " + table + " where update_time < '" + ENDTIME + "';";
 			String delete = "delete from " + table + " where update_time < '" + ENDTIME + "';";
-			System.out.println(backup + delete);
-//			syncDao.execute(backup + delete);
+//			System.out.println(backup + delete);
+			syncDao.execute(backup + delete);
 			return true;
 		} catch (Exception e) {
 			LOG.error(e.getMessage(), e);
